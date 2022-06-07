@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb2573190f043347b9d9c34daf7b97a, type: 3}
+  m_Name: Pipe
+  m_EditorClassIdentifier: 
+  itemName: Pipe
+  itemImage: {fileID: 21300000, guid: 6a5263126cacb3f44aa37adb6e345a4d, type: 3}
+  itemPrefab: {fileID: 100002, guid: 1fb1789d2762cb048a60b81e759db9fa, type: 3}
+  itemType: 1
+  weaponType: 
