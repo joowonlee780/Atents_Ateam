@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ItemController : MonoBehaviour
 {
+    public bool blackKeyOn = false;
 
     [SerializeField]
     private float range; // 습득 가능한 최대 거리.
@@ -94,6 +95,15 @@ public class ItemController : MonoBehaviour
                         door[i].GetComponent<MyDoorController>().blueKey = false;
 
                 }
+                if (hitInfo.transform.tag == "blackkey")
+                {
+                    pickitem();
+                    for (int i = 0; i < door.Length; i++)
+                        door[i].GetComponent<MyDoorController>().blueKey = false;
+
+                    blackKeyOn = true;
+
+                }
 
             }
         }
@@ -120,6 +130,10 @@ public class ItemController : MonoBehaviour
                 ItemInfoAppear();
             }
             if (hitInfo.transform.tag == "yellowkey")
+            {
+                ItemInfoAppear();
+            }
+            if (hitInfo.transform.tag == "blackkey")
             {
                 ItemInfoAppear();
             }

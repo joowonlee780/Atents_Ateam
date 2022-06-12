@@ -15,11 +15,10 @@ GameObject:
   - component: {fileID: 2725741014434768844}
   - component: {fileID: 1045061505113333240}
   - component: {fileID: 1669372345951589888}
-  - component: {fileID: 5448761339268040120}
   - component: {fileID: 945839297356369514}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Key
-  m_TagString: Key
+  m_TagString: yellowkey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513057870378880018}
-  m_LocalRotation: {x: 0.000000026820347, y: -0.7037048, z: -0.000000026564116, w: 0.7104925}
+  m_LocalRotation: {x: 0, y: -0.7037048, z: 0, w: 0.7104925}
   m_LocalPosition: {x: 12.849, y: -4.733, z: 1.1109996}
   m_LocalScale: {x: 1, y: 1.51, z: 1.04}
   m_Children: []
@@ -114,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf696dbc3844ca842b06a882871cd466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: da773c901a472fc4ba1112c26126f84d, type: 2}
+  item: {fileID: 11400000, guid: a08b5bd8d99226d498e97f88ac3d027c, type: 2}
 --- !u!65 &1045061505113333240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -144,21 +143,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5448761339268040120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 513057870378880018}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ec6c7f04ebb4c488da4030fdd0d918, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sampleDoor: 0
-  sampleKey: 1
-  _keyinventory: {fileID: 0}
 --- !u!114 &945839297356369514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,8 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 1
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 3
+  outlineColor: {r: 0.9747988, g: 1, b: 0.7830189, a: 1}
+  outlineWidth: 10
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []

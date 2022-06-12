@@ -25,6 +25,8 @@ TagManager:
   - Pipe
   - Weapon
   - Throw
+  - blackkey
+  - Inspect
   layers:
   - Default
   - TransparentFX

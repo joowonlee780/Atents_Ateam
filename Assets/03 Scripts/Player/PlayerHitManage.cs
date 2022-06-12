@@ -45,20 +45,20 @@ public class PlayerHitManage : MonoBehaviour
         hitScreen.SetActive(false);
     }
 
-    public void Hit() // 맞았을때 호출됨
+    public void Hit(float damage) // 맞았을때 호출됨
     {       
         //깜박거리게 한다.
-        StartCoroutine("PlayerHit"); // 이 코루틴에서 hp가 줄어듬
+        StartCoroutine(PlayerHit(damage)); // 이 코루틴에서 hp가 줄어듬
     }
 
-    IEnumerator PlayerHit()
+    IEnumerator PlayerHit(float damage)
     {
         h_alpha_color = 1.0f; // 알파값은 처음엔 1로
         //hitScreen을 보이게 한다.
         hitScreen.SetActive(true);
         
         //hp -= 5f;
-        playerHP.health -= 5f;
+        playerHP.health -= damage;
         
         //if (hp <= 0f) hp = 0f;
         if (playerHP.health <= 0f) playerHP.health = 0f;

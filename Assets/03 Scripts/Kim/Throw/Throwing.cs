@@ -21,13 +21,17 @@ public class Throwing : MonoBehaviour
     public float throwForce;
     public float throwUpwardForce;
 
-    bool readyToThrow;
+    public bool readyToThrow;
     public bool haveThrows;
+    public bool ChargeThrow;
 
     //차지 관련
     public const float Max_Force = 100f;
     private float holdDownStartTime;
     private float weakPower = 0.1f;
+
+    //필요한 컴포넌트
+    [SerializeField] private ChargeThrow theCharge;
 
     private void Start()
     {
@@ -37,28 +41,35 @@ public class Throwing : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(throwKey))
+        if(Input.GetKeyDown(throwKey) && haveThrows)
         {
             holdDownStartTime = Time.time;
+            ChargeThrow = true;
         }
         if(Input.GetKeyUp(throwKey) && readyToThrow && haveThrows)
         {
             float holdDownTime = Time.time - holdDownStartTime;
             Throw(holdDownTime);
+            theCharge.chairObj.SetActive(false);
         }
     }
 
     public void Throw(float HoldTime)
     {
-        float maxForceHoldDownTime = 2f;
+        float maxForceHoldDownTime = 1.5f;
         float holdTimeNormalized = Mathf.Clamp01(HoldTime / maxForceHoldDownTime);
         float force = holdTimeNormalized * Max_Force;
 
+        ChargeThrow = false;
         readyToThrow = false;
+        haveThrows = false;
+
+        theCharge.anim.SetBool("ReadyThrow", false);
 
         //instantiate object to throw
         GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.rotation);
-
+        projectile.GetComponent<ObjectController>().inspectController =
+            GameObject.FindGameObjectWithTag("Inspect").gameObject.GetComponent<InspectController>();
         //get rigidbodt component
         Rigidbody porjectileRb = projectile.GetComponent<Rigidbody>();
 
@@ -69,7 +80,6 @@ public class Throwing : MonoBehaviour
 
         if(Physics.Raycast(cam.position,cam.forward,out hit, 500f))
         {
-            
             forceDirection = (hit.point - attackPoint.position).normalized;
         }
 
@@ -77,8 +87,6 @@ public class Throwing : MonoBehaviour
         Vector3 forceToAdd = forceDirection * force * weakPower + transform.up * throwUpwardForce;
 
         porjectileRb.AddForce(forceToAdd, ForceMode.Impulse);
-
-        haveThrows = false;
 
         //implement throwCooldown
         Invoke(nameof(ResetThrow), throwCooldown);

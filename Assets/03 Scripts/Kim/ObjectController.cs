@@ -15,7 +15,7 @@ public class ObjectController : MonoBehaviour
     [TextArea] [SerializeField] private string NPC_Skeleton_Ekey_ExtraInfo; // 스켈레톤용
 
 
-    [SerializeField] private InspectController inspectController;
+    [SerializeField] public InspectController inspectController;
 
     ////사운드
     //[SerializeField] public string readObjectAudio;

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1417447937342907}
   - component: {fileID: 1417447937342908}
   - component: {fileID: 1417447937342909}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ThrowChairSchoolISP
-  m_TagString: Untagged
+  m_TagString: Throw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

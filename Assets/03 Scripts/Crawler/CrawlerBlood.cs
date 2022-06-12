@@ -19,7 +19,7 @@ public class CrawlerBlood : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-        if (coll.collider.CompareTag("BULLET"))
+        if (coll.collider.CompareTag("Throw"))
         {
             //혈흔 효과를 생성하는 함수 호출
             ShowBloodEffect(coll);

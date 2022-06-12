@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class InspectRaycast : MonoBehaviour
 {
+    //필요한 컴포넌트
     [SerializeField] private InspectController inspectController;
     [SerializeField] private Throwing theThrowing;
     [SerializeField] private Door512 doorController;
+    [SerializeField] private ChargeThrow theCharge;
 
     [SerializeField] private int rayLength = 5; // 범위
     [SerializeField] private LayerMask layerMaskInteract;
@@ -96,6 +98,7 @@ public class InspectRaycast : MonoBehaviour
                 doOnce = true;
                 if (Input.GetKeyDown(KeyCode.E) && !boardOn)
                 {
+                    raycastedObj.HideObjectName();
                     raycastedObj.ShowClipBoard();
                     boardOn = true;
                 }
@@ -166,7 +169,7 @@ public class InspectRaycast : MonoBehaviour
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
         if (Physics.Raycast(transform.position, fwd, out hit, rayLength, layerMaskInteract.value))
         {
-            if (hit.collider.CompareTag("Throw"))
+            if (hit.collider.CompareTag("Throw") && !GameObject.FindObjectOfType<Throwing>().haveThrows)
             {
                 if (!doOnce)
                 {
@@ -181,6 +184,8 @@ public class InspectRaycast : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Debug.Log("여기에서 줍기 on & 오브잭트 파괴");
+                    //theCharge.org_rot.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                    theCharge.chairObj.SetActive(true);
                     Destroy(hit.collider.gameObject);
                     theThrowing.ThrowOn(); // on
                     raycastedObj.ShowExtraInfo();

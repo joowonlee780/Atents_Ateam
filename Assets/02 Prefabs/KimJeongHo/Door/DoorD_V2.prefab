@@ -368,7 +368,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8933484962769192984}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.9656386, y: -2.7123435, z: -1.1477156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -457,10 +457,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorOpen: 0
+  redKey: 0
+  blueKey: 0
+  yellowKey: 0
   OpenPanel: {fileID: 0}
   ClosePanel: {fileID: 0}
-  doorOpenAudio: 
-  doorCloseAudio: 
+  doorOpenAudio: DoorOpen
+  doorCloseAudio: DoorClose
 --- !u!1 &8934090469315516250
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,10 +543,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorOpen: 0
+  redKey: 0
+  blueKey: 0
+  yellowKey: 0
   OpenPanel: {fileID: 0}
   ClosePanel: {fileID: 0}
-  doorOpenAudio: 
-  doorCloseAudio: 
+  doorOpenAudio: DoorOpen
+  doorCloseAudio: DoorClose
 --- !u!1 &8935014858097108102
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
-    private const string bulletTag = "BULLET";
+    private const string bulletTag = "Throw";
     //생명 게이지
-    private float hp = 100.0f;
+    public float hp = 100.0f;
     //피격 시 사용할 혈흔 효과
     private GameObject bloodEffect;
 
@@ -19,13 +19,14 @@ public class EnemyDamage : MonoBehaviour
     {
         if (coll.collider.tag == bulletTag)
         {
+            Debug.Log("의자맞음");
             //혈흔 효과를 생성하는 함수 호출
             ShowBloodEffect(coll);
             //총알 삭제
-            Destroy(coll.gameObject);
+            //Destroy(coll.gameObject);
             //생명 게이지 차감
-            hp -= coll.gameObject.GetComponent<BulletCtrl>().damage;
-
+            //hp -= coll.gameObject.GetComponent<BulletCtrl>().damage;
+            hp -= 30.0f;
             if (hp <= 0.0f)
             {
                 //적 캐릭터의 상태를 DIE로 변경

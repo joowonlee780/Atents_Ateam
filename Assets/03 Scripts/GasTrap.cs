@@ -19,7 +19,7 @@ public class GasTrap : MonoBehaviour
         time += Time.deltaTime;
         if (time > 4.0f && isIn)
         {
-            pm.Hit();
+            pm.Hit(3.0f);
             time = 0;
         }
     }
